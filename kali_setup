@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir /root/Scripts;
+touch /root/Scripts/vimesc
+touch /root/.Xmodmap
+
+echo "#!/bin/bash
+
+xmodmap /root/.Xmodmap;
+" >> /root/Scripts/vimesc;
+echo "
+remove Lock = Caps_Lock
+keysym Escape = Caps_Lock
+keysym Caps_Lock = Escape
+add Lock = Caps_Lock" >> /root/.Xmodmap;
+
+chmod +x /root/Scripts/vimesc;
+
+/root/Scripts/vimesc;
